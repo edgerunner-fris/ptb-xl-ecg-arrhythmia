@@ -10,6 +10,7 @@
 - 双头：5 个诊断超类（CD/HYP/MI/NORM/STTC）+ 12 个节律类，均为多标签。
 - **所有数字来自 `results/*.json` 的真实运行**，汇总见 [`docs/RESULTS_TABLE.md`](docs/RESULTS_TABLE.md)
   （由 [`src/m6_master_table.py`](src/m6_master_table.py) 生成，不手抄）。
+- 仓库不含 `data/`（原始数据约 2.5 GB）与 `.venv/`；克隆后先按下方第 0 步下载数据并建环境。
 
 ## 怎么启动
 
@@ -165,7 +166,7 @@ WFDB / XML / SCP-ECG 或数值文件，用上面的命令；只有 PDF/照片时
 所有命令在项目根目录执行；已存在的 `results/<tag>.json` 会被脚本复用或跳过（各脚本行为见 docstring）。
 
 ```powershell
-# 0) 数据（可选：数据已在 data/raw；脚本内为绝对路径，换机器需改 OUT）
+# 0) 数据（仓库不含 data/；脚本从官方 S3 镜像下载到 data/raw，并校验 MD5）
 python src/download_ptbxl.py --workers 32 --verify-md5
 
 # 1) M0：建 raw 缓存 + 完整性/标签/切分报告（308.1 s）
@@ -224,8 +225,8 @@ python src/m6_predict_check.py
 configs/m0.yaml          冻结的数据/标签/切分/评测决策
 splits/main_v1.json      主切分（ecg_id 级别）
 splits/m3_frac_*.json    M3 标签比例子集（按患者抽取，seed 42/43）
-data/raw/                下载的 PTB-XL（与脚本分离）
-data/processed/*.npy     原始缓存与滤波后缓存
+data/raw/                下载的 PTB-XL（本地生成，不纳入仓库）
+data/processed/*.npy     原始缓存与滤波后缓存（本地生成，不纳入仓库）
 src/                     全部脚本（见上表）
 models/                  各 run 的 checkpoint（.pt）
 results/                 每次运行的 config + metrics JSON、预测 npz、日志

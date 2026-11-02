@@ -27,8 +27,8 @@ $env:OPENBLAS_NUM_THREADS='1'; $env:OMP_NUM_THREADS='1'
 
 ### 从原始数据全流程
 
-先确认 `data/raw/ptb-xl/1.0.3/` 已有 21,799 对 `.hea/.dat`；没有则运行
-`python src/download_ptbxl.py --workers 32 --verify-md5`（脚本内是绝对路径，换机器要改）。
+仓库不含 `data/`。先确认 `data/raw/ptb-xl/1.0.3/` 已有 21,799 对 `.hea/.dat`；没有则运行
+`python src/download_ptbxl.py --workers 32 --verify-md5` 从官方 S3 镜像下载并校验。
 之后按 README 的"分阶段命令"M0 → M6 顺序执行。单机全流程约 2–3 小时（不含下载）。
 
 ## 2. 自动验收（一条命令）
