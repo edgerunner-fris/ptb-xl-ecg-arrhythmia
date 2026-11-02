@@ -1,0 +1,481 @@
+{
+  "tag": "m2_transformer_wide",
+  "recovered_from_checkpoint": true,
+  "recovery_note": "training completed and saved the best checkpoint; the original process died in final evaluation from system RAM exhaustion (OpenBLAS allocation failure). This run re-evaluates the checkpoint only; elapsed_sec unknown.",
+  "config": {
+    "epochs": 25,
+    "batch": 128,
+    "lr": 0.001,
+    "wd": 0.0001,
+    "warmup_steps": 200,
+    "patience": 8,
+    "workers": 4,
+    "seed": 42,
+    "patch": 25,
+    "stride": 12,
+    "d_model": 192,
+    "depth": 6,
+    "nhead": 6,
+    "model": "PatchTransformer",
+    "n_tokens": 82,
+    "params": 2155601,
+    "pos_encoding": "learned, CLS token prepended",
+    "loss": "masked BCE per head, equal weight",
+    "schedule": "200-step linear warmup + cosine",
+    "selection": "mean(super macro-AUC, rhythm macro-AUC) on val"
+  },
+  "environment": {
+    "python": "3.13.12",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+  },
+  "classes": {
+    "super": [
+      "CD",
+      "HYP",
+      "MI",
+      "NORM",
+      "STTC"
+    ],
+    "rhythm": [
+      "AFIB",
+      "AFLT",
+      "BIGU",
+      "PACE",
+      "PSVT",
+      "SARRH",
+      "SBRAD",
+      "SR",
+      "STACH",
+      "SVARR",
+      "SVTAC",
+      "TRIGU"
+    ]
+  },
+  "best_epoch": 10,
+  "elapsed_sec": null,
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 4.1543,
+      "val_super_auc": 0.8815,
+      "val_rhythm_auc": 0.7787,
+      "val_score": 0.8301,
+      "lr_end": 0.000685
+    },
+    {
+      "epoch": 2,
+      "train_loss": 2.5576,
+      "val_super_auc": 0.8957,
+      "val_rhythm_auc": 0.8355,
+      "val_score": 0.8656,
+      "lr_end": 0.000999
+    },
+    {
+      "epoch": 3,
+      "train_loss": 2.3105,
+      "val_super_auc": 0.9048,
+      "val_rhythm_auc": 0.8388,
+      "val_score": 0.8718,
+      "lr_end": 0.00099
+    },
+    {
+      "epoch": 4,
+      "train_loss": 2.1675,
+      "val_super_auc": 0.9059,
+      "val_rhythm_auc": 0.857,
+      "val_score": 0.8814,
+      "lr_end": 0.000972
+    },
+    {
+      "epoch": 5,
+      "train_loss": 2.0903,
+      "val_super_auc": 0.9099,
+      "val_rhythm_auc": 0.8975,
+      "val_score": 0.9037,
+      "lr_end": 0.000946
+    },
+    {
+      "epoch": 6,
+      "train_loss": 2.0083,
+      "val_super_auc": 0.9124,
+      "val_rhythm_auc": 0.8886,
+      "val_score": 0.9005,
+      "lr_end": 0.000911
+    },
+    {
+      "epoch": 7,
+      "train_loss": 1.9237,
+      "val_super_auc": 0.9114,
+      "val_rhythm_auc": 0.8969,
+      "val_score": 0.9042,
+      "lr_end": 0.00087
+    },
+    {
+      "epoch": 8,
+      "train_loss": 1.8212,
+      "val_super_auc": 0.9135,
+      "val_rhythm_auc": 0.8979,
+      "val_score": 0.9057,
+      "lr_end": 0.000822
+    },
+    {
+      "epoch": 9,
+      "train_loss": 1.7456,
+      "val_super_auc": 0.9074,
+      "val_rhythm_auc": 0.9069,
+      "val_score": 0.9071,
+      "lr_end": 0.000768
+    },
+    {
+      "epoch": 10,
+      "train_loss": 1.6921,
+      "val_super_auc": 0.9116,
+      "val_rhythm_auc": 0.9185,
+      "val_score": 0.915,
+      "lr_end": 0.000709
+    },
+    {
+      "epoch": 11,
+      "train_loss": 1.61,
+      "val_super_auc": 0.9108,
+      "val_rhythm_auc": 0.8884,
+      "val_score": 0.8996,
+      "lr_end": 0.000647
+    },
+    {
+      "epoch": 12,
+      "train_loss": 1.5107,
+      "val_super_auc": 0.9096,
+      "val_rhythm_auc": 0.9131,
+      "val_score": 0.9114,
+      "lr_end": 0.000582
+    },
+    {
+      "epoch": 13,
+      "train_loss": 1.4007,
+      "val_super_auc": 0.9096,
+      "val_rhythm_auc": 0.9112,
+      "val_score": 0.9104,
+      "lr_end": 0.000516
+    },
+    {
+      "epoch": 14,
+      "train_loss": 1.3188,
+      "val_super_auc": 0.9084,
+      "val_rhythm_auc": 0.9051,
+      "val_score": 0.9068,
+      "lr_end": 0.000449
+    },
+    {
+      "epoch": 15,
+      "train_loss": 1.1744,
+      "val_super_auc": 0.9068,
+      "val_rhythm_auc": 0.9043,
+      "val_score": 0.9055,
+      "lr_end": 0.000383
+    },
+    {
+      "epoch": 16,
+      "train_loss": 1.0544,
+      "val_super_auc": 0.9089,
+      "val_rhythm_auc": 0.8934,
+      "val_score": 0.9011,
+      "lr_end": 0.00032
+    },
+    {
+      "epoch": 17,
+      "train_loss": 0.9269,
+      "val_super_auc": 0.9033,
+      "val_rhythm_auc": 0.8717,
+      "val_score": 0.8875,
+      "lr_end": 0.000259
+    },
+    {
+      "epoch": 18,
+      "train_loss": 0.8015,
+      "val_super_auc": 0.9004,
+      "val_rhythm_auc": 0.8723,
+      "val_score": 0.8864,
+      "lr_end": 0.000203
+    }
+  ],
+  "val": {
+    "super": {
+      "macro_auc": 0.9115636263110689,
+      "n_evaluable_auc": 5,
+      "n_classes": 5,
+      "macro_f1_at_0.5": 0.6897830724533913,
+      "per_class": {
+        "CD": {
+          "auc": 0.9075290822921154,
+          "f1": 0.6848341232227488,
+          "aucpr": 0.789841227979794,
+          "prevalence": 0.2267521768808365,
+          "n_pos": 495
+        },
+        "HYP": {
+          "auc": 0.8807412026031721,
+          "f1": 0.5188679245283019,
+          "aucpr": 0.5909549454335818,
+          "prevalence": 0.12276683747768402,
+          "n_pos": 268
+        },
+        "MI": {
+          "auc": 0.9016670048015148,
+          "f1": 0.6772983114446529,
+          "aucpr": 0.7761492390065938,
+          "prevalence": 0.2473660111427307,
+          "n_pos": 540
+        },
+        "NORM": {
+          "auc": 0.9428705424902365,
+          "f1": 0.8530712530712531,
+          "aucpr": 0.9242976520713111,
+          "prevalence": 0.4374713599681854,
+          "n_pos": 955
+        },
+        "STTC": {
+          "auc": 0.9250102993683054,
+          "f1": 0.71484375,
+          "aucpr": 0.7684571056881092,
+          "prevalence": 0.2418689876794815,
+          "n_pos": 528
+        }
+      }
+    },
+    "rhythm": {
+      "macro_auc": 0.9184960862259398,
+      "n_evaluable_auc": 12,
+      "n_classes": 12,
+      "macro_f1_at_0.5": 0.36617152618774496,
+      "per_class": {
+        "AFIB": {
+          "auc": 0.9758336809719977,
+          "f1": 0.7988165680473372,
+          "aucpr": 0.8766935063423074,
+          "prevalence": 0.06917086243629456,
+          "n_pos": 151
+        },
+        "AFLT": {
+          "auc": 0.979516806722689,
+          "f1": 0.8571428571428571,
+          "aucpr": 0.8160797442005192,
+          "prevalence": 0.003206596476957202,
+          "n_pos": 7
+        },
+        "BIGU": {
+          "auc": 0.8261494252873564,
+          "f1": 0.0,
+          "aucpr": 0.06143876582113409,
+          "prevalence": 0.003664681687951088,
+          "n_pos": 8
+        },
+        "PACE": {
+          "auc": 0.9691672269714725,
+          "f1": 0.7272727272727273,
+          "aucpr": 0.6835106840881177,
+          "prevalence": 0.01328447088599205,
+          "n_pos": 29
+        },
+        "PSVT": {
+          "auc": 0.9928134556574922,
+          "f1": 0.0,
+          "aucpr": 0.12648809523809523,
+          "prevalence": 0.001374255632981658,
+          "n_pos": 3
+        },
+        "SARRH": {
+          "auc": 0.7255583922250589,
+          "f1": 0.0,
+          "aucpr": 0.11407107605535483,
+          "prevalence": 0.03527256101369858,
+          "n_pos": 77
+        },
+        "SBRAD": {
+          "auc": 0.9503377182633317,
+          "f1": 0.44,
+          "aucpr": 0.4683799115201578,
+          "prevalence": 0.029317453503608704,
+          "n_pos": 64
+        },
+        "SR": {
+          "auc": 0.8607871975347552,
+          "f1": 0.9208261617900172,
+          "aucpr": 0.9323173649064501,
+          "prevalence": 0.7650023102760315,
+          "n_pos": 1670
+        },
+        "STACH": {
+          "auc": 0.9727022375215146,
+          "f1": 0.65,
+          "aucpr": 0.664419772067778,
+          "prevalence": 0.03802107274532318,
+          "n_pos": 83
+        },
+        "SVARR": {
+          "auc": 0.8587330873308733,
+          "f1": 0.0,
+          "aucpr": 0.1356711485735604,
+          "prevalence": 0.006871277932077646,
+          "n_pos": 15
+        },
+        "SVTAC": {
+          "auc": 0.981651376146789,
+          "f1": 0.0,
+          "aucpr": 0.05051892551892552,
+          "prevalence": 0.001374255632981658,
+          "n_pos": 3
+        },
+        "TRIGU": {
+          "auc": 0.928702430077946,
+          "f1": 0.0,
+          "aucpr": 0.026151930261519303,
+          "prevalence": 0.000916170421987772,
+          "n_pos": 2
+        }
+      }
+    },
+    "score": 0.9150298562685044
+  },
+  "test": {
+    "super": {
+      "macro_auc": 0.9096841474182333,
+      "n_evaluable_auc": 5,
+      "n_classes": 5,
+      "macro_f1_at_0.5": 0.7005241477239883,
+      "per_class": {
+        "CD": {
+          "auc": 0.8875303248550093,
+          "f1": 0.6577992744860943,
+          "aucpr": 0.7750433269197512,
+          "prevalence": 0.22565968334674835,
+          "n_pos": 496
+        },
+        "HYP": {
+          "auc": 0.8931317424768154,
+          "f1": 0.5586854460093896,
+          "aucpr": 0.6328498560847537,
+          "prevalence": 0.11919926851987839,
+          "n_pos": 262
+        },
+        "MI": {
+          "auc": 0.9008881288614298,
+          "f1": 0.6886446886446886,
+          "aucpr": 0.7694003207320066,
+          "prevalence": 0.2502274811267853,
+          "n_pos": 550
+        },
+        "NORM": {
+          "auc": 0.9455951164755887,
+          "f1": 0.8554913294797688,
+          "aucpr": 0.9255910043041833,
+          "prevalence": 0.4381255805492401,
+          "n_pos": 963
+        },
+        "STTC": {
+          "auc": 0.9212754244223245,
+          "f1": 0.742,
+          "aucpr": 0.7745914739231637,
+          "prevalence": 0.2370336651802063,
+          "n_pos": 521
+        }
+      }
+    },
+    "rhythm": {
+      "macro_auc": 0.8772092759006199,
+      "n_evaluable_auc": 12,
+      "n_classes": 12,
+      "macro_f1_at_0.5": 0.33827811163954097,
+      "per_class": {
+        "AFIB": {
+          "auc": 0.9736745639759222,
+          "f1": 0.7891566265060241,
+          "aucpr": 0.8593408077121771,
+          "prevalence": 0.06915377825498581,
+          "n_pos": 152
+        },
+        "AFLT": {
+          "auc": 0.8971767620786333,
+          "f1": 0.6,
+          "aucpr": 0.5565239427421543,
+          "prevalence": 0.0031847134232521057,
+          "n_pos": 7
+        },
+        "BIGU": {
+          "auc": 0.7210045662100457,
+          "f1": 0.0,
+          "aucpr": 0.043038220394741325,
+          "prevalence": 0.003639672417193651,
+          "n_pos": 8
+        },
+        "PACE": {
+          "auc": 0.9364713627386438,
+          "f1": 0.75,
+          "aucpr": 0.7305164475833147,
+          "prevalence": 0.012738853693008423,
+          "n_pos": 28
+        },
+        "PSVT": {
+          "auc": 0.9936247723132968,
+          "f1": 0.0,
+          "aucpr": 0.5333333333333333,
+          "prevalence": 0.0009099181042984128,
+          "n_pos": 2
+        },
+        "SARRH": {
+          "auc": 0.6862972011486862,
+          "f1": 0.0,
+          "aucpr": 0.0908783541451957,
+          "prevalence": 0.03503184765577316,
+          "n_pos": 77
+        },
+        "SBRAD": {
+          "auc": 0.9168228678537957,
+          "f1": 0.30927835051546393,
+          "aucpr": 0.350873105477996,
+          "prevalence": 0.02911737933754921,
+          "n_pos": 64
+        },
+        "SR": {
+          "auc": 0.8193783231643365,
+          "f1": 0.9109023626530032,
+          "aucpr": 0.9100665390131739,
+          "prevalence": 0.761601448059082,
+          "n_pos": 1674
+        },
+        "STACH": {
+          "auc": 0.9723304440038729,
+          "f1": 0.7,
+          "aucpr": 0.7815709314137946,
+          "prevalence": 0.03730664402246475,
+          "n_pos": 82
+        },
+        "SVARR": {
+          "auc": 0.8790881737310309,
+          "f1": 0.0,
+          "aucpr": 0.15685537243330092,
+          "prevalence": 0.006369426846504211,
+          "n_pos": 14
+        },
+        "SVTAC": {
+          "auc": 0.9904328018223234,
+          "f1": 0.0,
+          "aucpr": 0.0920314253647587,
+          "prevalence": 0.0013648772146552801,
+          "n_pos": 3
+        },
+        "TRIGU": {
+          "auc": 0.7402094717668488,
+          "f1": 0.0,
+          "aucpr": 0.07230807890438497,
+          "prevalence": 0.0009099181042984128,
+          "n_pos": 2
+        }
+      }
+    },
+    "score": 0.8934467116594267
+  }
+}

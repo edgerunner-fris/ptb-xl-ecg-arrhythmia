@@ -1,0 +1,37 @@
+# M0 configuration. Frozen decisions; later stages read this, not re-decide.
+project: ptb-xl-arrhythmia
+seed: 42
+
+data:
+  root: .  # project root, resolved relative to the repository
+  raw: data/raw/ptb-xl/1.0.3
+  source: PhysioNet S3 mirror (physionet-open), PTB-XL v1.0.3
+  records: records100
+  sampling_rate_hz: 100
+  duration_s: 10
+  leads: [I, II, III, aVR, aVL, aVF, V1, V2, V3, V4, V5, V6]
+
+labels:
+  primary: diagnostic_superclass      # 5-way multilabel
+  secondary: rhythm                   # multilabel long tail
+  likelihood_filter: none             # use every scp_code; sensitivity check at 50 on val only
+  no_diagnostic_statement: exclude_from_diagnostic_loss  # masked, not treated as negative
+
+split:
+  protocol: official_strat_fold
+  train_folds: [1, 2, 3, 4, 5, 6, 7, 8]
+  val_fold: 9
+  test_fold: 10
+  artifact: splits/main_v1.json
+  frozen: true
+
+preprocessing:                         # M1 detail, recorded here for reproducibility
+  bandpass_hz: [0.5, 40.0]
+  filter: butterworth_zero_phase
+  normalization: per_lead_zscore_fit_on_train
+
+evaluation:
+  primary_metric: macro_auc
+  secondary: [macro_f1, per_class_auc, per_class_f1, positive_prevalence]
+  f1_average: macro
+  min_positives_for_auc: 2

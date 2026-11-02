@@ -1,0 +1,9 @@
+{
+  "key": "scratch_seed42",
+  "n": 21799,
+  "d": 128,
+  "source": "scratch",
+  "pooling": "mean over 82 token states after final LayerNorm",
+  "extract_sec": 17.3,
+  "cache": "C:\\Users\\74021\\ecg_arrhythmia\\results\\m3_feat_scratch.npy"
+}

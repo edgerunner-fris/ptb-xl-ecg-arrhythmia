@@ -1,0 +1,48 @@
+{
+  "record": {
+    "ecg_id": 9,
+    "source": "C:\\Users\\74021\\ecg_arrhythmia\\data\\raw\\ptb-xl\\1.0.3\\records100\\00000\\00009_lr",
+    "fs": 100.0,
+    "n_samples": 1000
+  },
+  "model": "m1_resnet",
+  "raw_sigmoid": true,
+  "formats": {
+    "wfdb_mv": {
+      "max_abs_diff_super": 0.0,
+      "max_abs_diff_rhythm": 0.0,
+      "NORM": 0.959418773651123,
+      "CD": 0.033628109842538834
+    },
+    "npy": {
+      "max_abs_diff_super": 0.0,
+      "max_abs_diff_rhythm": 0.0,
+      "NORM": 0.959418773651123,
+      "CD": 0.033628109842538834
+    },
+    "csv_time_index": {
+      "max_abs_diff_super": 0.0,
+      "max_abs_diff_rhythm": 0.0,
+      "NORM": 0.959418773651123,
+      "CD": 0.033628109842538834
+    },
+    "csv_no_header": {
+      "max_abs_diff_super": 0.0,
+      "max_abs_diff_rhythm": 0.0,
+      "NORM": 0.959418773651123,
+      "CD": 0.033628109842538834
+    },
+    "wfdb_uv": {
+      "max_abs_diff_super": 2.2836029529571533e-06,
+      "max_abs_diff_rhythm": 4.112720489501953e-06,
+      "NORM": 0.9594165682792664,
+      "CD": 0.03363039344549179
+    }
+  },
+  "preprocess_vs_training_cache_max_abs": 0.0,
+  "prediction_vs_saved_test_max_abs": {
+    "super": 2.0503997802734375e-05,
+    "rhythm": 7.584691047668457e-06
+  },
+  "note": "saved test predictions were produced on GPU with batch 256; this check runs on CPU with batch 1, so probability differences are floating point, not a different input"
+}

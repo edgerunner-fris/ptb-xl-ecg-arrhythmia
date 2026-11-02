@@ -1,0 +1,261 @@
+{
+  "tag": "m3_ssl_msm",
+  "mode": "msm",
+  "config": {
+    "patch": 25,
+    "stride": 12,
+    "d_model": 128,
+    "depth": 4,
+    "nhead": 4,
+    "n_tokens": 82,
+    "params_ssl_model": 914220,
+    "params_encoder": 842496,
+    "mask_ratio_nominal": 0.4,
+    "n_spans": 8,
+    "span_samples": 50,
+    "masking": "raw-sample span mask before tokenization; MSE on masked samples only (avoids overlap leakage)",
+    "tau": 0.1,
+    "cl_weight": 0.2,
+    "augment": [
+      "amplitude U(0.8,1.2) per record",
+      "circular time shift +-10 samples (100 ms)",
+      "Gaussian noise sigma U(0.01,0.05)",
+      "per-lead dropout p=0.05"
+    ],
+    "batch": 128,
+    "lr": 0.001,
+    "wd": 0.0001,
+    "epochs": 30,
+    "warmup_steps": 200,
+    "schedule": "linear warmup + cosine",
+    "seed": 42,
+    "workers": 2
+  },
+  "environment": {
+    "python": "3.13.12",
+    "torch": "2.9.1+cu128",
+    "cuda": "12.8",
+    "device": "cuda",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU"
+  },
+  "data": {
+    "split": "train only",
+    "n_records": 17418,
+    "n_patients": 15023,
+    "val_test_overlap": 0
+  },
+  "elapsed_sec": 332.5,
+  "history": [
+    {
+      "epoch": 1,
+      "msm_mse": 1.0323305160683744,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3345637207522112,
+      "total": 1.0323305160683744
+    },
+    {
+      "epoch": 2,
+      "msm_mse": 0.9671579967526829,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33477626916240244,
+      "total": 0.9671579967526829
+    },
+    {
+      "epoch": 3,
+      "msm_mse": 0.9368330222718856,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3349345856729676,
+      "total": 0.9368330222718856
+    },
+    {
+      "epoch": 4,
+      "msm_mse": 0.9128568584428114,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33499812115641203,
+      "total": 0.9128568584428114
+    },
+    {
+      "epoch": 5,
+      "msm_mse": 0.8953222031979,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3343009701108231,
+      "total": 0.8953222031979
+    },
+    {
+      "epoch": 6,
+      "msm_mse": 0.8762138512204675,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3350636062814909,
+      "total": 0.8762138512204675
+    },
+    {
+      "epoch": 7,
+      "msm_mse": 0.8693623297354754,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3344435468316078,
+      "total": 0.8693623297354754
+    },
+    {
+      "epoch": 8,
+      "msm_mse": 0.8575413327883271,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3347812658723663,
+      "total": 0.8575413327883271
+    },
+    {
+      "epoch": 9,
+      "msm_mse": 0.8471650380422088,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3349313696517664,
+      "total": 0.8471650380422088
+    },
+    {
+      "epoch": 10,
+      "msm_mse": 0.8420824141186827,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33491890351561937,
+      "total": 0.8420824141186827
+    },
+    {
+      "epoch": 11,
+      "msm_mse": 0.8303155224112904,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3349926627295859,
+      "total": 0.8303155224112904
+    },
+    {
+      "epoch": 12,
+      "msm_mse": 0.8249814996824545,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3350475800826269,
+      "total": 0.8249814996824545
+    },
+    {
+      "epoch": 13,
+      "msm_mse": 0.818643211880151,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3351401228676824,
+      "total": 0.818643211880151
+    },
+    {
+      "epoch": 14,
+      "msm_mse": 0.8108931771096062,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33468228731961813,
+      "total": 0.8108931771096062
+    },
+    {
+      "epoch": 15,
+      "msm_mse": 0.8084570226423881,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33526116017909613,
+      "total": 0.8084570226423881
+    },
+    {
+      "epoch": 16,
+      "msm_mse": 0.8043431696646354,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3344077592825188,
+      "total": 0.8043431696646354
+    },
+    {
+      "epoch": 17,
+      "msm_mse": 0.7992305799442179,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3349447541815393,
+      "total": 0.7992305799442179
+    },
+    {
+      "epoch": 18,
+      "msm_mse": 0.7926526792785701,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3343600218786913,
+      "total": 0.7926526792785701
+    },
+    {
+      "epoch": 19,
+      "msm_mse": 0.7902233412160593,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3345356903531972,
+      "total": 0.7902233412160593
+    },
+    {
+      "epoch": 20,
+      "msm_mse": 0.7882325679940336,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3352689723319867,
+      "total": 0.7882325679940336
+    },
+    {
+      "epoch": 21,
+      "msm_mse": 0.7845467241371379,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3350018541164258,
+      "total": 0.7845467241371379
+    },
+    {
+      "epoch": 22,
+      "msm_mse": 0.7826941618148018,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33414753548362675,
+      "total": 0.7826941618148018
+    },
+    {
+      "epoch": 23,
+      "msm_mse": 0.7785111551775652,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33502207433476167,
+      "total": 0.7785111551775652
+    },
+    {
+      "epoch": 24,
+      "msm_mse": 0.7779978759148541,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33489776468452287,
+      "total": 0.7779978759148541
+    },
+    {
+      "epoch": 25,
+      "msm_mse": 0.7765524269026869,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3344060929820818,
+      "total": 0.7765524269026869
+    },
+    {
+      "epoch": 26,
+      "msm_mse": 0.7784923363257857,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33517918604261737,
+      "total": 0.7784923363257857
+    },
+    {
+      "epoch": 27,
+      "msm_mse": 0.7733276964110487,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33456739849027467,
+      "total": 0.7733276964110487
+    },
+    {
+      "epoch": 28,
+      "msm_mse": 0.7734926062471726,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33512691211174517,
+      "total": 0.7734926062471726
+    },
+    {
+      "epoch": 29,
+      "msm_mse": 0.780305048560395,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.3352333004860317,
+      "total": 0.780305048560395
+    },
+    {
+      "epoch": 30,
+      "msm_mse": 0.7749121425782933,
+      "cl_loss": null,
+      "actual_mask_ratio": 0.33487018942832947,
+      "total": 0.7749121425782933
+    }
+  ],
+  "checkpoint": "C:\\Users\\74021\\ecg_arrhythmia\\models\\m3_ssl_msm.pt"
+}

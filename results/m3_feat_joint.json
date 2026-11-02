@@ -1,0 +1,9 @@
+{
+  "key": "joint_1792945599",
+  "n": 21799,
+  "d": 128,
+  "source": "joint",
+  "pooling": "mean over 82 token states after final LayerNorm",
+  "extract_sec": 8.2,
+  "cache": "C:\\Users\\74021\\ecg_arrhythmia\\results\\m3_feat_joint.npy"
+}

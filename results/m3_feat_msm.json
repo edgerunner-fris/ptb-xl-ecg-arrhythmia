@@ -1,0 +1,9 @@
+{
+  "key": "msm_1792944611",
+  "n": 21799,
+  "d": 128,
+  "source": "msm",
+  "pooling": "mean over 82 token states after final LayerNorm",
+  "extract_sec": 16.3,
+  "cache": "C:\\Users\\74021\\ecg_arrhythmia\\results\\m3_feat_msm.npy"
+}

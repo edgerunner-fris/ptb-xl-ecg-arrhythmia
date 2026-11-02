@@ -1,0 +1,9 @@
+# Local environments and downloaded data are not versioned.
+.venv/
+data/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+.DS_Store
+Thumbs.db
